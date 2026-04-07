@@ -3,6 +3,7 @@ import { join } from "path";
 import {
   DEFAULT_CASTR_PLAYER_URL,
   DEFAULT_TWITCH_CHANNEL_URL,
+  SECOND_CASTR_PLAYER_URL,
   SECOND_TWITCH_CHANNEL_URL,
 } from "@/lib/default-twitch";
 import { newCameraId, newIngestKey } from "./id";
@@ -111,21 +112,32 @@ async function seedDemoCameras(): Promise<void> {
   };
   const c1: CameraRecord = {
     id: newCameraId(),
-    name: "Twitch — felipe_maldonado2",
-    sourceUrl: DEFAULT_TWITCH_CHANNEL_URL,
+    name: "Castr — turbostream 2",
+    sourceUrl: SECOND_CASTR_PLAYER_URL,
     isActive: true,
     order: 1,
-    description: "Embed oficial Twitch.",
+    description: "Segunda transmisión principal (player Castr).",
     streamType: "iframe",
     createdAt: now,
     updatedAt: now,
   };
   const c2: CameraRecord = {
     id: newCameraId(),
+    name: "Twitch — felipe_maldonado2",
+    sourceUrl: DEFAULT_TWITCH_CHANNEL_URL,
+    isActive: true,
+    order: 2,
+    description: "Embed oficial Twitch.",
+    streamType: "iframe",
+    createdAt: now,
+    updatedAt: now,
+  };
+  const c3: CameraRecord = {
+    id: newCameraId(),
     name: "Twitch — felipe_maldonado123",
     sourceUrl: SECOND_TWITCH_CHANNEL_URL,
     isActive: true,
-    order: 2,
+    order: 3,
     description: "Segundo canal Twitch (visor).",
     streamType: "iframe",
     createdAt: now,
@@ -134,6 +146,7 @@ async function seedDemoCameras(): Promise<void> {
   memory.cameras[c0.id] = c0;
   memory.cameras[c1.id] = c1;
   memory.cameras[c2.id] = c2;
+  memory.cameras[c3.id] = c3;
   queuePersist();
   await flushPersist();
 }
