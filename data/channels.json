@@ -1,0 +1,15 @@
+{
+  "channels": {
+    "3bde7cb71c9bce83": {
+      "channelId": "3bde7cb71c9bce83",
+      "channelName": "turbo stream",
+      "streamKey": "EjjnoqsG8jS74pp9dPW3CCEYaskQmMyn",
+      "ingestUrl": "rtmp://stream.midominio.com/live",
+      "publishUrl": "rtmp://stream.midominio.com/live/EjjnoqsG8jS74pp9dPW3CCEYaskQmMyn",
+      "playbackUrl": "https://play.midominio.com/hls/3bde7cb71c9bce83.m3u8",
+      "viewerUrl": "http://localhost:3000/watch/3bde7cb71c9bce83",
+      "createdAt": "2026-04-01T03:36:05.245Z",
+      "updatedAt": "2026-04-01T03:36:05.245Z"
+    }
+  }
+}

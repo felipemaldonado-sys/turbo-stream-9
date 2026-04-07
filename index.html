@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rappi Turbo Live</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="top-nav">
+      <div class="brand">
+        <img src="rappi-logo.png" alt="Rappi" class="brand-logo" />
+        <div class="brand-copy">
+          <span class="brand-name">Rappi Turbo</span>
+          <span class="brand-subtitle">Live fulfillment demo</span>
+        </div>
+      </div>
+
+      <div class="live-pill">
+        <span class="live-dot"></span>
+        En vivo
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="hero">
+        <div class="hero-copy">
+          <div id="timer" class="timer-pill">Turbo 15:00</div>
+          <h1>Observa en tiempo real cómo se alista el pedido.</h1>
+          <p>
+           DEMO
+          </p>
+        </div>
+      </section>
+
+      <section class="status-card">
+        <div class="status-header">
+          <h2>Seleccionando los productos</h2>
+          <span class="status-badge">DEMO</span>
+        </div>
+
+        <div class="progress-row">
+          <div class="step-icon active">🛍️</div>
+          <div class="progress-track">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+          <div class="step-icon">🏍️</div>
+          <div class="mini-track"></div>
+          <div class="step-icon">🏠</div>
+        </div>
+      </section>
+
+      <section class="stream-section">
+        <div class="stream-header">
+          <div>
+            <p class="stream-kicker">Visual operativa</p>
+            <h3>Vista en vivo de preparación</h3>
+          </div>
+          <div class="stream-tag">En Vivo</div>
+        </div>
+
+        <div class="stream-switcher">
+          <button class="stream-tab active" data-stream="stream1">Cam 1</button>
+          <button class="stream-tab" data-stream="stream2">Cam 2</button>
+        </div>
+
+        <div class="stream-frame">
+          <div id="twitch-player-1" class="twitch-player active-player"></div>
+          <div id="twitch-player-2" class="twitch-player hidden-player"></div>
+        </div>
+      </section>
+
+      <section class="products-section">
+        <div class="products-header">
+          <div>
+            <p class="products-kicker">Pedido en preparación</p>
+            <h3>Productos seleccionados</h3>
+          </div>
+          <span class="products-badge">Actualización en vivo</span>
+        </div>
+
+        <div class="products-marquee">
+          <div class="products-track">
+            <article class="product-card">
+              <div class="product-image">
+                <img src="aguacate.png" alt="Aguacate Hass">
+              </div>
+              <div class="product-info">
+                <p class="product-name">Aguacate Hass</p>
+                <p class="product-price">$8.900</p>
+              </div>
+              <span class="product-tag">Agregado</span>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">
+                <img src="banano.png" alt="Banano">
+              </div>
+              <div class="product-info">
+                <p class="product-name">Banano</p>
+                <p class="product-price">$4.500</p>
+              </div>
+              <span class="product-tag">Agregado</span>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">
+                <img src="cocacola.png" alt="Coca-Cola">
+              </div>
+              <div class="product-info">
+                <p class="product-name">Coca-Cola</p>
+                <p class="product-price">$5.900</p>
+              </div>
+              <span class="product-tag">Agregado</span>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">
+                <img src="electrolit.png" alt="Electrolit">
+              </div>
+              <div class="product-info">
+                <p class="product-name">Electrolit</p>
+                <p class="product-price">$7.200</p>
+              </div>
+              <span class="product-tag">Agregado</span>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">
+                <img src="aguacate.png" alt="Aguacate Hass">
+              </div>
+              <div class="product-info">
+                <p class="product-name">Aguacate Hass</p>
+                <p class="product-price">$8.900</p>
+              </div>
+              <span class="product-tag">Agregado</span>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">
+                <img src="banano.png" alt="Banano">
+              </div>
+              <div class="product-info">
+                <p class="product-name">Banano</p>
+                <p class="product-price">$4.500</p>
+              </div>
+              <span class="product-tag">Agregado</span>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">
+                <img src="cocacola.png" alt="Coca-Cola">
+              </div>
+              <div class="product-info">
+                <p class="product-name">Coca-Cola</p>
+                <p class="product-price">$5.900</p>
+              </div>
+              <span class="product-tag">Agregado</span>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">
+                <img src="electrolit.png" alt="Electrolit">
+              </div>
+              <div class="product-info">
+                <p class="product-name">Electrolit</p>
+                <p class="product-price">$7.200</p>
+              </div>
+              <span class="product-tag">Agregado</span>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

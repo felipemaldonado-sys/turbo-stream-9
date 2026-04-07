@@ -1,0 +1,497 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #070707;
+  --white: #ffffff;
+  --muted: rgba(255, 255, 255, 0.68);
+  --green: #11a63d;
+  --green-soft: #1ed760;
+  --rappi: #ff5a3c;
+  --rappi-soft: #ff7b63;
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top, #151515 0%, #070707 45%);
+  color: var(--white);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.page-shell {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px 20px 48px;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-logo {
+  width: 54px;
+  height: 54px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(255, 90, 60, 0.28);
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.brand-subtitle {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  color: var(--white);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+.live-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #ff3b30;
+  box-shadow: 0 0 12px rgba(255, 59, 48, 0.6);
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.hero-copy {
+  max-width: 780px;
+}
+
+.timer-pill {
+  display: inline-block;
+  background: var(--green);
+  color: var(--white);
+  padding: 16px 28px;
+  border-radius: 999px;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  box-shadow: 0 18px 30px rgba(17, 166, 61, 0.28);
+}
+
+.hero h1 {
+  font-size: clamp(34px, 5vw, 62px);
+  line-height: 0.98;
+  margin: 0 0 16px;
+  letter-spacing: -1.8px;
+  max-width: 920px;
+}
+
+.hero p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+.status-card {
+  background: var(--white);
+  color: #111;
+  border-radius: 28px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.status-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.status-header h2 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -0.8px;
+}
+
+.status-badge {
+  background: #fff0ec;
+  color: var(--rappi);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.step-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 999px;
+  background: #f1f3f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex: 0 0 auto;
+}
+
+.step-icon.active {
+  background: var(--green-soft);
+}
+
+.progress-track {
+  flex: 1;
+  height: 8px;
+  background: #e7e9ec;
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, #0cb43f, #2be76f);
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
+
+.mini-track {
+  width: 90px;
+  height: 8px;
+  background: #e7e9ec;
+  border-radius: 999px;
+  flex: 0 0 auto;
+}
+
+.stream-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.stream-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.stream-kicker {
+  margin: 0 0 6px;
+  color: var(--rappi-soft);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.stream-header h3 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -0.8px;
+}
+
+.stream-tag {
+  background: rgba(255, 90, 60, 0.12);
+  color: #ff8d77;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.stream-switcher {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.stream-tab {
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.stream-tab.active {
+  background: rgba(255, 90, 60, 0.18);
+  border-color: rgba(255, 90, 60, 0.5);
+  color: #ff9b87;
+}
+
+.stream-frame {
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #0f0f0f;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  min-height: 560px;
+  position: relative;
+}
+
+.twitch-player {
+  width: 100%;
+  height: 620px;
+  min-width: 400px;
+  min-height: 300px;
+  background: #111;
+}
+
+.hidden-player {
+  display: none;
+}
+
+.active-player {
+  display: block;
+}
+
+.products-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.products-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.products-kicker {
+  margin: 0 0 6px;
+  color: var(--rappi-soft);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.products-header h3 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -0.8px;
+}
+
+.products-badge {
+  background: rgba(255, 90, 60, 0.12);
+  color: #ff8d77;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.products-marquee {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.products-track {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  animation: productsScroll 28s linear infinite;
+}
+
+.product-card {
+  min-width: 280px;
+  max-width: 280px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  backdrop-filter: blur(10px);
+}
+
+.product-image {
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6px;
+  flex: 0 0 auto;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-info {
+  flex: 1;
+  text-align: left;
+}
+
+.product-name {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.3px;
+}
+
+.product-price {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.product-tag {
+  background: rgba(30, 215, 96, 0.12);
+  color: #6dff9f;
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+@keyframes productsScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.products-marquee:hover .products-track {
+  animation-play-state: paused;
+}
+
+@media (max-width: 900px) {
+  .status-header,
+  .stream-header,
+  .products-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stream-frame {
+    min-height: 420px;
+  }
+
+  .twitch-player {
+    height: 420px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    padding: 16px 14px 36px;
+  }
+
+  .brand-logo {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+  }
+
+  .timer-pill {
+    font-size: 22px;
+    padding: 14px 22px;
+  }
+
+  .status-card {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .status-header h2,
+  .stream-header h3,
+  .products-header h3 {
+    font-size: 22px;
+  }
+
+  .step-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+  }
+
+  .mini-track {
+    width: 46px;
+  }
+
+  .twitch-player {
+    height: 320px;
+    min-width: 0;
+  }
+
+  .product-card {
+    min-width: 240px;
+    max-width: 240px;
+  }
+
+  .product-image {
+    width: 54px;
+    height: 54px;
+  }
+
+  .product-name {
+    font-size: 16px;
+  }
+}
+  .product-name {
+    font-size: 16px;
+  }
+}

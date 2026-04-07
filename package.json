@@ -1,0 +1,37 @@
+{
+  "name": "turbo-stream",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "dev:clean": "rm -rf .next && next dev",
+    "dev:3333": "rm -rf .next && next dev -p 3333",
+    "dev:go": "bash scripts/dev-local.sh",
+    "fix:next": "rm -rf .next node_modules/.cache",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "media-server": "node scripts/media-server.cjs"
+  },
+  "dependencies": {
+    "hls.js": "^1.5.20",
+    "next": "15.1.11",
+    "node-media-server": "2.6.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.11",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,923 @@
+/* Formato visual alineado con index.html (Rappi Turbo Live) */
+
+.viewer-rappi-root {
+  --bg: #070707;
+  --white: #ffffff;
+  --muted: rgba(255, 255, 255, 0.68);
+  --green: #11a63d;
+  --green-soft: #1ed760;
+  --rappi: #ff5a3c;
+  --rappi-soft: #ff7b63;
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+
+  box-sizing: border-box;
+  background: radial-gradient(circle at top, #151515 0%, #070707 45%);
+  color: var(--white);
+  min-height: 100vh;
+  font-family: var(--font-sans), Inter, Arial, Helvetica, sans-serif;
+}
+
+.viewer-rappi-root *,
+.viewer-rappi-root *::before,
+.viewer-rappi-root *::after {
+  box-sizing: border-box;
+}
+
+.viewer-rappi-root .page-shell {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px 20px 48px;
+}
+
+.viewer-rappi-root .top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.viewer-rappi-root .brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.viewer-rappi-root .brand-logo {
+  width: 54px;
+  height: 54px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(255, 90, 60, 0.28);
+}
+
+.viewer-rappi-root .brand-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.viewer-rappi-root .brand-name {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.viewer-rappi-root .brand-subtitle {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.viewer-rappi-root .live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  color: var(--white);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+.viewer-rappi-root .live-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #ff3b30;
+  box-shadow: 0 0 12px rgba(255, 59, 48, 0.6);
+}
+
+.viewer-rappi-root .main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.viewer-rappi-root .hero-copy {
+  max-width: 780px;
+}
+
+.viewer-rappi-root .hero-title-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px 16px;
+  margin-bottom: 16px;
+}
+
+.viewer-rappi-root .hero-title-wrap h1 {
+  margin: 0;
+  flex: 1 1 280px;
+}
+
+.viewer-rappi-root .hero-demo-pill {
+  flex: 0 0 auto;
+  margin-top: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 90, 60, 0.45);
+  color: var(--rappi-soft);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.viewer-rappi-root .timer-pill {
+  display: inline-block;
+  background: var(--green);
+  color: var(--white);
+  padding: 16px 28px;
+  border-radius: 999px;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  box-shadow: 0 18px 30px rgba(17, 166, 61, 0.28);
+}
+
+.viewer-rappi-root .hero h1 {
+  font-size: clamp(34px, 5vw, 62px);
+  line-height: 0.98;
+  margin: 0 0 16px;
+  letter-spacing: -1.8px;
+  max-width: 920px;
+}
+
+.viewer-rappi-root .hero p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+.viewer-rappi-root .status-card {
+  position: relative;
+  background: var(--white);
+  color: #111;
+  border-radius: 28px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.viewer-rappi-root .status-card-demo-pill {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 90, 60, 0.35);
+  color: var(--rappi);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .viewer-rappi-root .status-card-demo-pill {
+    position: static;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+}
+
+.viewer-rappi-root .status-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.viewer-rappi-root .status-header h2 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -0.8px;
+}
+
+.viewer-rappi-root .status-badge {
+  background: #fff0ec;
+  color: var(--rappi);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.viewer-rappi-root .progress-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.viewer-rappi-root .step-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 999px;
+  background: #f1f3f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex: 0 0 auto;
+}
+
+.viewer-rappi-root .step-icon.active {
+  background: var(--green-soft);
+}
+
+.viewer-rappi-root .progress-track {
+  flex: 1;
+  height: 8px;
+  background: #e7e9ec;
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.viewer-rappi-root .progress-fill {
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, #0cb43f, #2be76f);
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
+
+.viewer-rappi-root .mini-track {
+  width: 90px;
+  height: 8px;
+  background: #e7e9ec;
+  border-radius: 999px;
+  flex: 0 0 auto;
+}
+
+.viewer-rappi-root .stream-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.viewer-rappi-root .stream-heading-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.viewer-rappi-root .stream-heading-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.viewer-rappi-root .stream-title-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+}
+
+.viewer-rappi-root .stream-title-line h3 {
+  margin: 0;
+}
+
+.viewer-rappi-root .stream-heading-live {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 90, 60, 0.16);
+  border: 1px solid rgba(255, 90, 60, 0.35);
+  color: #ffb39e;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.viewer-rappi-root .stream-sub-name {
+  margin: 8px 0 0;
+  font-size: 15px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.viewer-rappi-root .stream-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.viewer-rappi-root .stream-kicker {
+  margin: 0 0 6px;
+  color: var(--rappi-soft);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.viewer-rappi-root .stream-header h3 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -0.8px;
+}
+
+.viewer-rappi-root .stream-tag {
+  background: rgba(255, 90, 60, 0.12);
+  color: #ff8d77;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.viewer-rappi-root .stream-frame {
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #0f0f0f;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  min-height: 420px;
+}
+
+.viewer-rappi-root .stream-frame-inner {
+  min-height: 420px;
+  width: 100%;
+}
+
+.viewer-rappi-root .stream-video-stage {
+  position: relative;
+  isolation: isolate;
+}
+
+.viewer-rappi-root .stream-video-stage .stream-player-fill {
+  position: relative;
+  z-index: 0;
+}
+
+.viewer-rappi-root .stream-overlay {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+}
+
+.viewer-rappi-root .stream-overlay-tl {
+  top: 14px;
+  left: 14px;
+  max-width: 55%;
+}
+
+.viewer-rappi-root .stream-overlay-channel {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.viewer-rappi-root .stream-overlay-tr {
+  top: 14px;
+  right: 14px;
+}
+
+.viewer-rappi-root .stream-overlay-en-vivo {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #c62828;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+@media (min-width: 901px) {
+  .viewer-rappi-root .stream-frame,
+  .viewer-rappi-root .stream-frame-inner {
+    min-height: 560px;
+  }
+}
+
+/* Reproductor Next: quitar doble borde dentro del marco */
+.viewer-rappi-root .stream-frame-inner .stream-player-shell {
+  border-radius: 0;
+  border: none;
+  min-height: inherit;
+  aspect-ratio: auto;
+}
+
+.viewer-rappi-root .stream-frame-inner .stream-player-shell video,
+.viewer-rappi-root .stream-frame-inner .stream-player-shell iframe,
+.viewer-rappi-root .stream-frame-inner .stream-player-shell .twitch-sdk-root {
+  min-height: 420px;
+}
+
+@media (min-width: 901px) {
+  .viewer-rappi-root .stream-frame-inner .stream-player-shell video,
+  .viewer-rappi-root .stream-frame-inner .stream-player-shell iframe,
+  .viewer-rappi-root .stream-frame-inner .stream-player-shell .twitch-sdk-root {
+    min-height: 560px;
+  }
+}
+
+/* Twitch.Player inyecta iframe dentro del div; asegura que llene el marco */
+.viewer-rappi-root .stream-frame-inner .stream-player-shell .twitch-sdk-root {
+  position: relative;
+}
+
+.viewer-rappi-root .stream-frame-inner .stream-player-shell .twitch-sdk-root iframe {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 420px;
+}
+
+@media (min-width: 901px) {
+  .viewer-rappi-root .stream-frame-inner .stream-player-shell .twitch-sdk-root iframe {
+    min-height: 560px;
+  }
+}
+
+.viewer-rappi-root .products-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Solo sugeridos (sin carrusel de cámaras arriba) */
+.viewer-rappi-root .products-section > .suggested-wrap:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.viewer-rappi-root .products-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.viewer-rappi-root .products-kicker {
+  margin: 0 0 6px;
+  color: var(--rappi-soft);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.viewer-rappi-root .products-header h3 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -0.8px;
+}
+
+.viewer-rappi-root .products-badge {
+  background: rgba(255, 90, 60, 0.12);
+  color: #ff8d77;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.viewer-rappi-root .products-marquee {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.viewer-rappi-root .products-track {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  animation: viewerProductsScroll 28s linear infinite;
+}
+
+.viewer-rappi-root .products-marquee:hover .products-track {
+  animation-play-state: paused;
+}
+
+.viewer-rappi-root .product-card {
+  min-width: 280px;
+  max-width: 280px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.viewer-rappi-root .product-card:hover {
+  border-color: rgba(255, 90, 60, 0.35);
+}
+
+.viewer-rappi-root .product-card.is-selected {
+  border-color: var(--rappi);
+  box-shadow: 0 0 0 2px rgba(255, 90, 60, 0.25);
+}
+
+.viewer-rappi-root .product-image {
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6px;
+  flex: 0 0 auto;
+}
+
+.viewer-rappi-root .product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.viewer-rappi-root .product-info {
+  flex: 1;
+  text-align: left;
+}
+
+.viewer-rappi-root .product-name {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.3px;
+}
+
+.viewer-rappi-root .product-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.viewer-rappi-root .product-tag {
+  background: rgba(30, 215, 96, 0.12);
+  color: #6dff9f;
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  flex-shrink: 0;
+}
+
+@keyframes viewerProductsScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.viewer-rappi-root .view-toggle {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.viewer-rappi-root .view-toggle button {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  color: var(--white);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.viewer-rappi-root .view-toggle button.is-on {
+  background: rgba(255, 90, 60, 0.2);
+  border-color: rgba(255, 90, 60, 0.45);
+  color: #ffb3a6;
+}
+
+/* Pastillas Cam 1 / Cam 2 (referencia demo Twitch) */
+.viewer-rappi-root .cam-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.viewer-rappi-root .cam-pills button {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: rgba(255, 255, 255, 0.75);
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    color 0.15s;
+}
+
+.viewer-rappi-root .cam-pills button:hover {
+  border-color: rgba(255, 90, 60, 0.35);
+  color: #fff;
+}
+
+.viewer-rappi-root .cam-pills button.is-active {
+  background: #3a2528;
+  border-color: rgba(255, 90, 60, 0.55);
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255, 90, 60, 0.15);
+}
+
+.viewer-rappi-root .cam-pills .cam-pill-grid {
+  margin-left: 4px;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.viewer-rappi-root .cam-pills .cam-pill-grid.is-active {
+  background: rgba(17, 166, 61, 0.2);
+  border-color: rgba(30, 215, 96, 0.45);
+  color: #b8f5c8;
+}
+
+.viewer-rappi-root .grid-wrap {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+/* Productos sugeridos (estilo gopuff / pop-ups suaves) */
+.viewer-rappi-root .suggested-wrap {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.viewer-rappi-root .suggested-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.viewer-rappi-root .suggested-kicker {
+  margin: 0 0 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.viewer-rappi-root .suggested-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.viewer-rappi-root .suggested-hint {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 500;
+}
+
+.viewer-rappi-root .suggested-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 6px 4px 14px;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 90, 60, 0.25) transparent;
+}
+
+.viewer-rappi-root .suggested-scroll::-webkit-scrollbar {
+  height: 5px;
+}
+
+.viewer-rappi-root .suggested-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+
+.viewer-rappi-root .suggested-pop {
+  position: relative;
+  flex: 0 0 auto;
+  width: 132px;
+  scroll-snap-align: start;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.22);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.viewer-rappi-root .suggested-pop:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 90, 60, 0.18);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+}
+
+.viewer-rappi-root .suggested-pop-inner {
+  padding: 12px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.viewer-rappi-root .suggested-emoji {
+  font-size: 28px;
+  line-height: 1;
+  filter: saturate(0.95);
+  opacity: 0.95;
+}
+
+.viewer-rappi-root .suggested-text {
+  width: 100%;
+}
+
+.viewer-rappi-root .suggested-name {
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.82);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.viewer-rappi-root .suggested-price {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(255, 180, 160, 0.95);
+  letter-spacing: -0.02em;
+}
+
+.viewer-rappi-root .suggested-sub {
+  margin: 4px 0 0;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.35);
+  line-height: 1.2;
+}
+
+.viewer-rappi-root .suggested-chip {
+  display: block;
+  text-align: center;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+  padding: 6px 8px 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.viewer-rappi-root .suggested-dismiss {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.viewer-rappi-root .suggested-pop:hover .suggested-dismiss {
+  opacity: 1;
+}
+
+.viewer-rappi-root .suggested-dismiss:hover {
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+@media (hover: none) {
+  .viewer-rappi-root .suggested-dismiss {
+    opacity: 0.55;
+  }
+}
+
+@media (max-width: 900px) {
+  .viewer-rappi-root .status-header,
+  .viewer-rappi-root .stream-header,
+  .viewer-rappi-root .products-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .viewer-rappi-root .stream-frame,
+  .viewer-rappi-root .stream-frame-inner {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  .viewer-rappi-root .page-shell {
+    padding: 16px 14px 36px;
+  }
+
+  .viewer-rappi-root .brand-logo {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+  }
+
+  .viewer-rappi-root .timer-pill {
+    font-size: 22px;
+    padding: 14px 22px;
+  }
+
+  .viewer-rappi-root .status-card {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .viewer-rappi-root .status-header h2,
+  .viewer-rappi-root .stream-header h3,
+  .viewer-rappi-root .products-header h3 {
+    font-size: 22px;
+  }
+
+  .viewer-rappi-root .step-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+  }
+
+  .viewer-rappi-root .mini-track {
+    width: 46px;
+  }
+
+  .viewer-rappi-root .product-card {
+    min-width: 240px;
+    max-width: 240px;
+  }
+
+  .viewer-rappi-root .product-image {
+    width: 54px;
+    height: 54px;
+  }
+
+  .viewer-rappi-root .product-name {
+    font-size: 16px;
+  }
+
+  .viewer-rappi-root .suggested-pop {
+    width: 118px;
+  }
+
+  .viewer-rappi-root .suggested-title {
+    font-size: 16px;
+  }
+}
