@@ -1,8 +1,14 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-const ADMIN_BASIC_USER = process.env.ADMIN_BASIC_USER ?? "rappiturbostream";
-const ADMIN_BASIC_PASS = process.env.ADMIN_BASIC_PASS ?? "turbocastr.io";
+const ADMIN_BASIC_USER =
+  process.env.ADMIN_BASIC_USER && process.env.ADMIN_BASIC_USER.trim().length > 0
+    ? process.env.ADMIN_BASIC_USER.trim()
+    : "rappiturbostream";
+const ADMIN_BASIC_PASS =
+  process.env.ADMIN_BASIC_PASS && process.env.ADMIN_BASIC_PASS.trim().length > 0
+    ? process.env.ADMIN_BASIC_PASS.trim()
+    : "turbocastr.io";
 const BASIC_AUTH_REALM = "Turbo Stream Admin";
 
 function unauthorizedResponse() {
