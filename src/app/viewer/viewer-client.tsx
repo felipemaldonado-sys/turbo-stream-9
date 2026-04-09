@@ -81,24 +81,8 @@ export function ViewerClient() {
       <div className="page-shell">
         <header className="top-nav">
           <div className="brand">
-            <div className="brand-logos">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/rappi-logo.png"
-                alt="Rappi"
-                width={54}
-                height={54}
-                className="brand-logo"
-              />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/turbo-express-logo.png"
-                alt="Turbo Express"
-                width={54}
-                height={54}
-                className="brand-logo brand-logo-turbo"
-              />
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/turbo-logo.png" alt="Turbo" className="brand-turbo-mark" width={160} height={40} />
             <div className="brand-copy">
               <span className="brand-name">Turbo Stream</span>
               <span className="brand-subtitle">Demo</span>
@@ -151,13 +135,13 @@ export function ViewerClient() {
                     padWhenStrip
                   >
                     <div className="flex min-h-[320px] flex-col items-center justify-center gap-4 p-8 text-center">
-                      <p className="text-base font-medium text-red-300">{loadError}</p>
-                      <p className="max-w-md text-sm text-[rgba(255,255,255,0.55)]">
+                      <p className="text-base font-medium text-red-600">{loadError}</p>
+                      <p className="max-w-md text-sm text-neutral-600">
                         Comprueba que el servidor esté en marcha y que exista el archivo de datos.
                       </p>
                       <button
                         type="button"
-                        className="rounded-full bg-white/10 px-5 py-2 text-sm font-semibold text-white transition hover:bg-white/20"
+                        className="rounded-full border border-neutral-300 bg-white px-5 py-2 text-sm font-semibold text-neutral-900 shadow-sm transition hover:bg-neutral-50"
                         onClick={() => void refreshList()}
                       >
                         Reintentar
@@ -177,7 +161,7 @@ export function ViewerClient() {
                     onShow={dockShow}
                     padWhenStrip
                   >
-                    <div className="flex min-h-[320px] flex-col items-center justify-center p-8 text-center text-[rgba(255,255,255,0.68)]">
+                    <div className="flex min-h-[320px] flex-col items-center justify-center p-8 text-center text-neutral-600">
                       <p>Cargando cámaras…</p>
                     </div>
                   </SuggestionsDock>
@@ -242,9 +226,9 @@ export function ViewerClient() {
                     onShow={dockShow}
                     padWhenStrip
                   >
-                    <div className="flex min-h-[320px] flex-col items-center justify-center p-8 text-center text-[rgba(255,255,255,0.68)]">
+                    <div className="flex min-h-[320px] flex-col items-center justify-center p-8 text-center text-neutral-600">
                       <p>No hay cámaras Castr activas.</p>
-                      <p className="mt-2 text-sm">
+                      <p className="mt-2 text-sm text-neutral-500">
                         Configura fuentes en player.castr.com en el panel de administración.
                       </p>
                     </div>

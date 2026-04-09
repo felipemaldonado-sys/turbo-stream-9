@@ -8,9 +8,9 @@ export default function ViewerError({
   reset: () => void;
 }) {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-[#070707] px-6 text-center text-white">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-white px-6 text-center text-neutral-900">
       <p className="text-lg font-semibold">No se pudo cargar el visor</p>
-      <p className="mt-2 max-w-md text-sm text-white/60">{error.message || "Error inesperado"}</p>
+      <p className="mt-2 max-w-md text-sm text-neutral-600">{error.message || "Error inesperado"}</p>
       <button
         type="button"
         onClick={() => reset()}
