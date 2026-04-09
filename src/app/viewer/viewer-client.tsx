@@ -83,10 +83,6 @@ export function ViewerClient() {
           <div className="brand">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/turbo-logo.png" alt="Turbo" className="brand-turbo-mark" width={160} height={40} />
-            <div className="brand-copy">
-              <span className="brand-name">Turbo Stream</span>
-              <span className="brand-subtitle">Demo</span>
-            </div>
           </div>
           <div className="live-pill">
             <span className="live-dot" />

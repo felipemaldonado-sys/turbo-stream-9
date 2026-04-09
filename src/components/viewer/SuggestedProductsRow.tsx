@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import { useCallback, useEffect, useMemo, useState, type CSSProperties } from "react";
 import {
   resolvedSuggestedImageUrl,
   SUGGESTED_PRODUCT_IMAGE_FALLBACK,
@@ -9,10 +9,9 @@ import {
 
 /** Debe coincidir con `var(--suggested-marquee-duration)` en viewer-rappi.css */
 const MARQUEE_DURATION_SEC = 30;
-const LIST_DURATION_SEC = 30;
 
-const marqueeDurationMs = MARQUEE_DURATION_SEC * 1000;
-const listDurationMs = LIST_DURATION_SEC * 1000;
+/** La franja de lista aparece tras este tiempo (página ya cargada). */
+const LIST_SHOW_DELAY_MS = 3000;
 
 function SuggestedThumb({
   imageUrl,
@@ -95,20 +94,21 @@ function IconCarouselView({ className }: { className?: string }) {
 }
 
 /**
- * Carrusel horizontal; al terminar una vuelta completa pasa a tarjeta “live” con lista
- * (mismos productos, enlaces a Rappi, quitar ítem). Luego vuelve al carrusel en bucle.
- * El usuario puede alternar vista con el botón de icono (lista / carrusel) sin desactivar los temporizadores.
+ * Lista principal (tras un breve retraso) con marquee vertical en CSS, como el carrusel horizontal;
+ * carrusel solo desde el botón de vista.
  */
 export function SuggestedProductsRow({ products, onHideStrip }: Props) {
   const [dismissed, setDismissed] = useState<Set<string>>(new Set());
-  const [viewMode, setViewMode] = useState<ViewMode>("marquee");
+  const [viewMode, setViewMode] = useState<ViewMode>("list");
   const [marqueeKey, setMarqueeKey] = useState(0);
-  const trackRef = useRef<HTMLDivElement>(null);
+  const [overlayVisible, setOverlayVisible] = useState(false);
 
   const visible = useMemo(
     () => products.filter((p) => !dismissed.has(p.id)),
     [products, dismissed]
   );
+
+  const listLoop = useMemo(() => [...visible, ...visible], [visible]);
 
   const loop = useMemo(() => [...visible, ...visible], [visible]);
 
@@ -122,32 +122,10 @@ export function SuggestedProductsRow({ products, onHideStrip }: Props) {
   }, []);
 
   useEffect(() => {
-    if (visible.length === 0) return;
-    if (viewMode !== "marquee") return;
-
-    const reduced =
-      typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (reduced) {
-      const id = window.setTimeout(goToList, marqueeDurationMs);
-      return () => window.clearTimeout(id);
-    }
-
-    const el = trackRef.current;
-    if (!el) return;
-
-    const onIteration = () => goToList();
-    el.addEventListener("animationiteration", onIteration);
-    return () => el.removeEventListener("animationiteration", onIteration);
-  }, [viewMode, marqueeKey, visible.length, goToList]);
-
-  useEffect(() => {
-    if (visible.length === 0) return;
-    if (viewMode !== "list") return;
-
-    const id = window.setTimeout(goToMarquee, listDurationMs);
+    if (products.length === 0) return;
+    const id = window.setTimeout(() => setOverlayVisible(true), LIST_SHOW_DELAY_MS);
     return () => window.clearTimeout(id);
-  }, [viewMode, visible.length, goToMarquee]);
+  }, [products.length]);
 
   if (visible.length === 0) {
     return (
@@ -162,28 +140,26 @@ export function SuggestedProductsRow({ products, onHideStrip }: Props) {
     );
   }
 
+  if (!overlayVisible) {
+    return null;
+  }
+
   const marqueeStyle = {
     "--suggested-marquee-duration": `${MARQUEE_DURATION_SEC}s`,
+  } as CSSProperties;
+
+  const listMarqueeStyle = {
+    "--suggested-list-marquee-duration": `${MARQUEE_DURATION_SEC}s`,
   } as CSSProperties;
 
   return (
     <div
       className={`suggested-overlay${viewMode === "list" ? " suggested-overlay--list-mode" : ""}`}
-      aria-label="Productos sugeridos"
+      aria-label="Productos en empaque"
     >
       <div className="suggested-overlay-header">
         <div className="suggested-overlay-header-actions">
-          {viewMode === "marquee" ? (
-            <button
-              type="button"
-              className="suggested-view-toggle"
-              aria-label="Ver productos como lista"
-              title="Ver como lista"
-              onClick={goToList}
-            >
-              <IconListView />
-            </button>
-          ) : (
+          {viewMode === "list" ? (
             <button
               type="button"
               className="suggested-view-toggle"
@@ -193,6 +169,16 @@ export function SuggestedProductsRow({ products, onHideStrip }: Props) {
             >
               <IconCarouselView />
             </button>
+          ) : (
+            <button
+              type="button"
+              className="suggested-view-toggle"
+              aria-label="Ver productos como lista"
+              title="Ver como lista"
+              onClick={goToList}
+            >
+              <IconListView />
+            </button>
           )}
           <button type="button" className="suggested-strip-hide" onClick={onHideStrip}>
             Ocultar
@@ -200,9 +186,59 @@ export function SuggestedProductsRow({ products, onHideStrip }: Props) {
         </div>
       </div>
 
-      {viewMode === "marquee" ? (
+      {viewMode === "list" ? (
+        <div className="suggested-live-stack suggested-live-stack--enter">
+          <div className="suggested-live-card">
+            <div className="suggested-live-card-header-row">
+              <h2 className="suggested-live-heading">
+                Productos reales, empacados en tiempo real
+              </h2>
+              <button
+                type="button"
+                className="suggested-live-card-close"
+                aria-label="Cerrar lista y ver carrusel"
+                onClick={goToMarquee}
+              >
+                ×
+              </button>
+            </div>
+            <div className="suggested-live-divider" role="presentation" />
+            <div className="suggested-live-list-outer" style={listMarqueeStyle}>
+              <ul className="suggested-live-list suggested-live-list--marquee">
+                {listLoop.map((p, copyIdx) => (
+                  <li key={`${p.id}-${copyIdx}`} className="suggested-live-item">
+                    <a
+                      href={p.rappiProductUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="suggested-live-row"
+                      aria-label={`${p.name}. Abrir en Rappi`}
+                    >
+                      <SuggestedThumb
+                        imageUrl={p.imageUrl}
+                        productId={p.id}
+                        name={p.name}
+                        thumbClassName="suggested-live-row-thumb"
+                      />
+                      <p className="suggested-live-row-name">{p.name}</p>
+                    </a>
+                    <button
+                      type="button"
+                      className="suggested-live-item-dismiss"
+                      aria-label={`Quitar ${p.name}`}
+                      onClick={() => setDismissed((s) => new Set(s).add(p.id))}
+                    >
+                      ×
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      ) : (
         <div className="suggested-marquee-outer" style={marqueeStyle}>
-          <div key={marqueeKey} ref={trackRef} className="suggested-marquee-track">
+          <div key={marqueeKey} className="suggested-marquee-track">
             {loop.map((p, i) => (
               <article key={`${p.id}-${i}`} className="suggested-pop suggested-pop--overlay">
                 <button
@@ -232,52 +268,6 @@ export function SuggestedProductsRow({ products, onHideStrip }: Props) {
                 </a>
               </article>
             ))}
-          </div>
-        </div>
-      ) : (
-        <div className="suggested-live-stack">
-          <div className="suggested-live-card">
-            <div className="suggested-live-card-header-row">
-              <h2 className="suggested-live-heading">Productos sugeridos</h2>
-              <button
-                type="button"
-                className="suggested-live-card-close"
-                aria-label="Ocultar lista y volver al carrusel"
-                onClick={goToMarquee}
-              >
-                ×
-              </button>
-            </div>
-            <div className="suggested-live-divider" role="presentation" />
-            <ul className="suggested-live-list">
-              {visible.map((p) => (
-                <li key={p.id} className="suggested-live-item">
-                  <a
-                    href={p.rappiProductUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="suggested-live-row"
-                    aria-label={`${p.name}. Abrir en Rappi`}
-                  >
-                    <SuggestedThumb
-                      imageUrl={p.imageUrl}
-                      productId={p.id}
-                      name={p.name}
-                      thumbClassName="suggested-live-row-thumb"
-                    />
-                    <p className="suggested-live-row-name">{p.name}</p>
-                  </a>
-                  <button
-                    type="button"
-                    className="suggested-live-item-dismiss"
-                    aria-label={`Quitar ${p.name}`}
-                    onClick={() => setDismissed((s) => new Set(s).add(p.id))}
-                  >
-                    ×
-                  </button>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       )}

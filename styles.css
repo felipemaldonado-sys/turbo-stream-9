@@ -58,22 +58,6 @@ body {
   flex-shrink: 0;
 }
 
-.brand-copy {
-  display: flex;
-  flex-direction: column;
-}
-
-.brand-name {
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: -0.3px;
-}
-
-.brand-subtitle {
-  font-size: 13px;
-  color: var(--muted);
-}
-
 .live-pill {
   display: inline-flex;
   align-items: center;
